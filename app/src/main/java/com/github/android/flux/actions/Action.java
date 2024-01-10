@@ -5,7 +5,6 @@ import java.util.HashMap;
 /**
  * Created by zlove on 2018/2/4.
  */
-
 public class Action {
     private final String type;
     private final HashMap<String, Object> data;

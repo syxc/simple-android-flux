@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * Created by zlove on 2018/2/5.
  */
-
 public class SingerStore extends Store {
 
     private static SingerStore instance;
@@ -41,7 +40,7 @@ public class SingerStore extends Store {
     public void onAction(Action action) {
         switch (action.getType()) {
             case SingerActions.ActionType.CREATE_ACTION:
-                Singer singer =((Singer) action.getData().get(SingerActions.EventObjectKey.KEY_SINGER));
+                Singer singer = ((Singer) action.getData().get(SingerActions.EventObjectKey.KEY_SINGER));
                 addElement(singer);
                 emitStoreChange();
                 break;
@@ -52,7 +51,6 @@ public class SingerStore extends Store {
                 break;
         }
     }
-
 
     private void addElement(Singer clone) {
         singers.add(clone);
@@ -75,6 +73,5 @@ public class SingerStore extends Store {
         return new SingerStoreChangeEvent();
     }
 
-    public class SingerStoreChangeEvent implements StoreChangeEvent {
-    }
+    public static class SingerStoreChangeEvent implements StoreChangeEvent {}
 }

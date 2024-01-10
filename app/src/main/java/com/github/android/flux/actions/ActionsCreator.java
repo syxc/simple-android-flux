@@ -6,7 +6,6 @@ import com.github.android.flux.model.Singer;
 /**
  * Created by zlove on 2018/2/5.
  */
-
 public class ActionsCreator {
 
     private static ActionsCreator instance;
@@ -24,14 +23,10 @@ public class ActionsCreator {
     }
 
     public void create(Singer singer) {
-        dispatcher.dispatch(SingerActions.ActionType.CREATE_ACTION,
-                SingerActions.EventObjectKey.KEY_SINGER,
-                singer);
+        dispatcher.dispatch(SingerActions.ActionType.CREATE_ACTION, SingerActions.EventObjectKey.KEY_SINGER, singer);
     }
 
     public void delete(long id) {
-        dispatcher.dispatch(SingerActions.ActionType.DELETE_ACTION,
-                SingerActions.EventObjectKey.KEY_SINGER_ID,
-                id);
+        dispatcher.dispatch(SingerActions.ActionType.DELETE_ACTION, SingerActions.EventObjectKey.KEY_SINGER_ID, id);
     }
 }

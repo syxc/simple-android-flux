@@ -1,13 +1,14 @@
 package com.github.android.flux;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.android.flux.actions.ActionsCreator;
 import com.github.android.flux.dispatcher.Dispatcher;
@@ -17,7 +18,6 @@ import com.squareup.otto.Bus;
 /**
  * Created by zlove on 2018/2/5.
  */
-
 public class FillInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActionsCreator actionsCreator;
@@ -39,11 +39,11 @@ public class FillInfoActivity extends AppCompatActivity implements View.OnClickL
 
         initDependencies();
 
-        etName = (EditText) findViewById(R.id.name);
-        etGender = (EditText) findViewById(R.id.gender);
-        etAge = (EditText) findViewById(R.id.age);
+        etName = findViewById(R.id.name);
+        etGender = findViewById(R.id.gender);
+        etAge = findViewById(R.id.age);
 
-        btnAdd = (Button) findViewById(R.id.add);
+        btnAdd = findViewById(R.id.add);
         btnAdd.setOnClickListener(this);
     }
 
@@ -65,24 +65,28 @@ public class FillInfoActivity extends AppCompatActivity implements View.OnClickL
             showToast("Please Input Name!");
             return;
         }
+
         gender = etGender.getText().toString();
         if (TextUtils.isEmpty(gender)) {
             showToast("Please Input Gender!");
             return;
         }
+
         age = etAge.getText().toString();
         if (TextUtils.isEmpty(gender)) {
             showToast("Please Input Age!");
             return;
         }
+
         long id = System.currentTimeMillis();
-        int ageValue = Integer.valueOf(age);
+        int ageValue = Integer.parseInt(age);
         Singer singer = new Singer(id, name, gender, ageValue);
         actionsCreator.create(singer);
+
         finish();
     }
 
     private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

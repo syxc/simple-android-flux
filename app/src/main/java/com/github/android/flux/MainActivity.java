@@ -2,11 +2,12 @@ package com.github.android.flux;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.android.flux.actions.ActionsCreator;
 import com.github.android.flux.dispatcher.Dispatcher;
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initDependencies();
         setUpView();
     }
@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setUpView() {
-        recyclerView = (RecyclerView) findViewById(R.id.singer_list);
+        recyclerView = findViewById(R.id.singer_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mDividerItemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
         recyclerView.addItemDecoration(mDividerItemDecoration);
         adapter = new SingerRecyclerAdapter(actionsCreator);
         recyclerView.setAdapter(adapter);
-        btnAdd = (Button) findViewById(R.id.add);
+        btnAdd = findViewById(R.id.add);
         btnAdd.setOnClickListener(this);
     }
 

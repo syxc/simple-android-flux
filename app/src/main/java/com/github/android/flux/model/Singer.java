@@ -1,17 +1,16 @@
 package com.github.android.flux.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by zlove on 2018/2/4.
  */
-
 public class Singer implements Cloneable, Comparable<Singer> {
 
-    private long id;
-    private String name;
-    private String gender;
-    private int age;
+    private final long id;
+    private final String name;
+    private final String gender;
+    private final int age;
 
     public Singer(long id, String name, String gender, int age) {
         this.id = id;

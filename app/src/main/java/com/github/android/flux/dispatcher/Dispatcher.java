@@ -7,21 +7,20 @@ import com.squareup.otto.Bus;
 /**
  * Created by zlove on 2018/2/5.
  */
-
 public class Dispatcher {
 
-    private final Bus bus;
     private static Dispatcher instance;
+    private final Bus bus;
+
+    Dispatcher(Bus bus) {
+        this.bus = bus;
+    }
 
     public static Dispatcher get(Bus bus) {
         if (instance == null) {
             instance = new Dispatcher(bus);
         }
         return instance;
-    }
-
-    Dispatcher(Bus bus) {
-        this.bus = bus;
     }
 
     public void register(final Object cls) {

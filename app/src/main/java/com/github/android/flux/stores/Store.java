@@ -6,7 +6,6 @@ import com.github.android.flux.dispatcher.Dispatcher;
 /**
  * Created by zlove on 2018/2/5.
  */
-
 public abstract class Store {
 
     final Dispatcher dispatcher;
